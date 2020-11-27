@@ -8,13 +8,13 @@ Small package for handling nested ternary statements, allowing you to read your 
 
 # Basic Usage
 
-```
+```javascript
 const nt = require('nested-ternary');
 // or import nt from 'nested-ternary'
 
 // lets model a simple number guessing game
-const num = Math.ceil(Math.random() * 100) // 1 - 100
-const guess = someUser.input
+const num = Math.ceil(Math.random() * 100); // 1 - 100
+const guess = someUser.input;
 
 // checks condition using key:cond in the object passed in
 // returns key:t if true, key:f if false
@@ -25,8 +25,8 @@ nt({
   f: {
     cond: guess < num,
     t: 'too low',
-    f: 'too high'
-  }
+    f: 'too high',
+  },
 });
 ```
 
@@ -34,7 +34,7 @@ nt({
 
 sometimes you need to lazy load your values so that the complier does not compile them and return an error because of some missing attribute or function
 
-```
+```javascript
 const nt = require('nested-ternary');
 
 //lets model an array of values coming from a stock exchange api
@@ -60,13 +60,13 @@ const data = [
 ]
 
 data.forEach(stock => nt({
-  cond: stock.value,
-  t: {
-    cond: stock.format,
-    t: () => `${stock.prefix || ''}${stock.format(stock.value)}${stock.suffix || ''},
-    f: () => `${stock.prefix || ''}${stock.value}${stock.suffix || ''}
-  },
-  f: () => `stock removed or unavailable: ${stock.name}`
+    cond: stock.value,
+    t: {
+      cond: stock.format,
+      t: () => `${stock.prefix || ''}${stock.format(stock.value)}${stock.suffix || ''}`,
+      f: () => `${stock.prefix || ''}${stock.value}${stock.suffix || ''}
+    },
+    f: () => `stock removed or unavailable: ${stock.name}`
   })();
 );
 ```
