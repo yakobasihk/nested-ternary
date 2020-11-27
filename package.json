@@ -1,0 +1,30 @@
+{
+  "name": "nested-ternary",
+  "version": "1.0.0",
+  "description": "readable nested ternaries ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yakobasihk/nested-ternary.git"
+  },
+  "keywords": [
+    "nested",
+    "ternary",
+    "ternaries",
+    "if",
+    "else",
+    "?",
+    ":",
+    "switch",
+    "cases"
+  ],
+  "author": "jacob issac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yakobasihk/nested-ternary/issues"
+  },
+  "homepage": "https://github.com/yakobasihk/nested-ternary#readme"
+}

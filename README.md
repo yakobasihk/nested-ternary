@@ -66,10 +66,12 @@ data.forEach(stock => nt({
     t: () => `${stock.prefix || ''}${stock.format(stock.value)}${stock.suffix || ''},
     f: () => `${stock.prefix || ''}${stock.value}${stock.suffix || ''}
   },
-  f: () => 'stock removed or unavailable'
+  f: () => `stock removed or unavailable: ${stock.name}`
   })();
 );
 ```
 
 we have to make sure that the value of t and f is a function whenever we want to return a final value (as in not nesting another object).
 we need this so that the compiler does not try to evaluate the value, in our example here format is missing from the last 2 stocks so if we removed the function set up: '() =>' then we run into an error since stock.format(...) is not a function.
+
+Please dont forget to evalute the return from nt using '()' because a function is being returned and you wont see anything unless you evaluate it :)
